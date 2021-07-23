@@ -9,24 +9,32 @@ import org.bukkit.entity.Player;
 import java.util.Arrays;
 import java.util.List;
 
-public class SampleCommandTab implements TabCompleter {
+public final class SampleCommandTab implements TabCompleter {
 
-    @Override
-    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
+	/**
+	 * 
+	 * The method onTabComplete() will be "started", if someone tabs ingame.
+	 * ~ simple, hehe
+	 * 
+	 * @author Sonny J.
+	 * @contributor PlugDev
+	 * @version 1.0
+	 * @since 1.0
+	 * 
+	 */
+	
+	
+	@Override
+	public final List<String> onTabComplete(final CommandSender commandSender, final Command command,
+			final String string, final String[] args) {
+		final List<String> stuff = Arrays.asList("", "");
+		if (args.length == 1) {
+			stuff.clear();
+			for (Player player : Bukkit.getOnlinePlayers())
+				stuff.add(player.getName());
+			return stuff;
+		}
 
-        List<String> stuff = Arrays.asList("","");
-
-        if (strings.length == 1)
-        {
-            stuff.clear();
-            for (Player p : Bukkit.getOnlinePlayers())
-            {
-                stuff.add(p.getName());
-            }
-            return stuff;
-        }
-        else {
-            return null;
-        }
-    }
+		return null;
+	}
 }
