@@ -1,4 +1,4 @@
-main: com.iffyspeak.AllChat
+main: com.iffyspeak.AllChats
 name: AllChat
 version: 1.0.0
 api-version: 1.17
