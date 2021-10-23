@@ -1,16 +1,8 @@
-main: com.iffyspeak.Plugin
-name: PluginTemplate
+main: com.iffyspeak.AllChat
+name: AllChat
 version: 1.0.0
-api-version: 1.16
+api-version: 1.17
 load: STARTUP
 author: iffyspeak
-prefix: plugin_template
+prefix: AC
 loadbefore: []
-
-commands:
- sample:
-  description: Sample Command
-  usage: /sample
-  aliases: [sample1, sample2]
-  permission: sample.sample
-  default: op
