@@ -24,37 +24,44 @@ public final class EventListener implements Listener {
 	@EventHandler
 	public final void onChatEvent(final AsyncPlayerChatEvent e)
 	{
+        /*
+        List<String> playersInRange = Arrays.asList("");
         if (!e.getMessage().startsWith("@"))
         {
-            List<Player> playersToMessage = Arrays.asList();
+            // If the message doesn't start with @, do some stuff.
+
             for (Player p : Bukkit.getOnlinePlayers())
             {
-                Location loc = p.getLocation();
-                Location locSend = e.getPlayer().getLocation();
+                Location theirLoc = p.getLocation(); // Get the receiver's location
+                double distanceToSender = Math.abs(e.getPlayer().getLocation().distance(theirLoc)); // Compare locations and get distance
 
-                if (locSend.distance(loc) <= 100)
+                if (distanceToSender < 100)
                 {
-                    playersToMessage.add(p);
+                     playersInRange.add(p.getName());// If the distance to sender is less than 100 units, go ahead and queue that player to the send message thing
                 }
             }
 
-            if (playersToMessage != null) {
-                for (int p = 0; p < playersToMessage.size(); p++)
+            e.setCancelled(true);
+            if (playersInRange.size() <= 0)
+            {
+                for (int pl = 0; pl < playersInRange.size(); pl++)
                 {
-                    playersToMessage.get(p).sendMessage(e.getPlayer().getDisplayName() + " >> " + e.getMessage());
-                    e.setCancelled(true);
+                    //Player currentPlayer = playersInRange.get(pl);
+                    Player currentPlayer = Bukkit.getPlayerExact(playersInRange.get(pl));
+                    currentPlayer.sendMessage(e.getPlayer().getDisplayName() + " >> " + e.getMessage());
                 }
             }
         } else
         {
             if (e.getPlayer().isOp())
-            {
+            {*/
+        if (e.getMessage().startsWith("@"))
                 for (Player p : Bukkit.getOnlinePlayers())
                 {
-                    p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(e.getPlayer().getDisplayName() + " >> " + e.getMessage()));
+                    String formattedString = e.getMessage().substring(1);
+                    e.setCancelled(true);
+                    p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(e.getPlayer().getDisplayName() + " >> " + formattedString));
                 }
             }
         }
 
-	}
-}
