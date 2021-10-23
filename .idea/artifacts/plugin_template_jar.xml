@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="plugin-template:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/plugin_template_jar</output-path>
-    <root id="archive" name="plugin-template.jar">
-      <element id="module-output" name="plugin-template" />
-      <element id="extracted-dir" path="D:/BuildTools/BuildTools/Spigot/Spigot-API/target/spigot-api-1.16.5-R0.1-SNAPSHOT-shaded.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>

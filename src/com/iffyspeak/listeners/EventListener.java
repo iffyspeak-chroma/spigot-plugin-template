@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import java.util.Arrays;
 import java.util.List;
 
 public final class EventListener implements Listener {
@@ -25,7 +26,7 @@ public final class EventListener implements Listener {
 	{
         if (!e.getMessage().startsWith("@"))
         {
-            List<Player> playersToMessage = null;
+            List<Player> playersToMessage = Arrays.asList();
             for (Player p : Bukkit.getOnlinePlayers())
             {
                 Location loc = p.getLocation();
